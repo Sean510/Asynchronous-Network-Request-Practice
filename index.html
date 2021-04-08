@@ -8,7 +8,7 @@
             const request = new XMLHttpRequest();
             request.onload = function () {
                const data = JSON.parse(request.responseText);
-               alert(data);
+               console.log(data);
             }
 
             request.open('GET','https://randomuser.me/api/');
