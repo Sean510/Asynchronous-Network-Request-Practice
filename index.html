@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+
+        function get_data_ajax(){
+
+            const request = new XMLHttpRequest();
+            request.onload = function () {
+               const data = JSON.parse(request.responseText);
+               alert(data);
+            }
+
+            request.open('GET','https://randomuser.me./api/');
+            request.send();
+        }
+
+
+        </script>
+        <title> Asynchronous Requests </title>
+    </head>
+
+    <body>
+
+        <button onclick="get_data_ajax()"> Get data using AJAX </button>
+        <button onclick=""> Get data using fetch Promise </button>
+        <button onclick=""> Get data using fetch and Async/Await </button>
+
+        <div id="showData">
+        </div>
+
+    </body>
+</html>
