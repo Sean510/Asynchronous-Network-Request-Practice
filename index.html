@@ -8,13 +8,22 @@
             const request = new XMLHttpRequest();
             request.onload = function () {
                const data = JSON.parse(request.responseText);
-               console.log(data);
+               //console.log(data);
+               updateDOM(data);
             }
 
             request.open('GET','https://randomuser.me/api/');
             request.send();
         }
 
+
+        function updateDOM(data){
+            let imgage = data.results[0].picture.large;
+            let email = data.results[0].email;
+            let HTMLstring = 'img src="${image}"> <br> Email: ${email}';
+            document.querySelector("#showData").innerHTML = HTMLstring;
+
+        }
 
         </script>
         <title> Asynchronous Requests </title>
