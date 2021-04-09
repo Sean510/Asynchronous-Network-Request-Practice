@@ -16,11 +16,29 @@
             request.send();
         }
 
+        function get_data_fetch(){
+            
+            fetch('https://randomuser.me/api/').then(
+                (response) => {
+                   return response.json();
+
+                }
+            ).then( 
+                (data) => {
+                    updateDom(data);
+                } 
+            ).catch(
+                (err) => {
+                    console.error(err);
+                }
+            )
+        }
+
 
         function updateDOM(data){
             let image = data.results[0].picture.large;
             let email = data.results[0].email;
-            let HTMLstring = `<img src="${image}"> <br> Email: ${email}`;
+            let HTMLstring = 'img src="${image}"> <br> Email: ${email}';
             document.querySelector("#showData").innerHTML = HTMLstring;
 
         }
@@ -32,7 +50,7 @@
     <body>
 
         <button onclick="get_data_ajax()"> Get data using AJAX </button>
-        <button onclick=""> Get data using fetch Promise </button>
+        <button onclick="get_data_fetch()"> Get data using fetch Promise </button>
         <button onclick=""> Get data using fetch and Async/Await </button>
 
         <div id="showData">
