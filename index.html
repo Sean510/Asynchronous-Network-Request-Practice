@@ -38,7 +38,7 @@
         function updateDOM(data){
             let image = data.results[0].picture.large;
             let email = data.results[0].email;
-            let HTMLstring = 'img src="${image}"> <br> Email: ${email}';
+            let HTMLstring = `img src="${image}"> <br> Email: ${email}`;
             document.querySelector("#showData").innerHTML = HTMLstring;
 
         }
